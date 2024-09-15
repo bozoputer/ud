@@ -1,7 +1,22 @@
 <script>
-  import Comp1 from '../components/Comp1.svelte';
+  import { users } from '../store';
+  let userData;
+
+  $: {
+    userData = $users || [];
+  }
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<Comp1 />
+{#if userData.length > 0}
+  <ul>
+    {#each userData as company}
+      <li>
+        <span><a href="/">{company.company.name}</a>, </span><span
+          >{company.company.catchPhrase},
+        </span><span>1</span>
+      </li>
+    {/each}
+  </ul>
+{:else}
+  <p>Loading...</p>
+{/if}
