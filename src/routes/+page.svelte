@@ -35,14 +35,8 @@
                         >Catch Phrase</th
                       >
                       <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                        >Employees</th
+                        ># Employees</th
                       >
-                      <th
-                        scope="col"
-                        class="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                      >
-                        Transfer Employee To:
-                      </th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-800">
@@ -63,18 +57,6 @@
                         <td
                           class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
                         >
-                          <div>
-                            <select
-                              id="company"
-                              name="company"
-                              class="mt-2 block w-56 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            >
-                              <option hidden disabled selected value>Select company </option>
-                              {#each userData as company}
-                                <option>{company.company.name}</option>
-                              {/each}
-                            </select>
-                          </div>
                         </td>
                       </tr>
                     {/each}

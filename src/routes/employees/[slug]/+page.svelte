@@ -2,9 +2,19 @@
   import { users } from '../../../store';
   import { browser } from '$app/environment';
   let currentCompany;
+  let userData;
+  let selected;
+
+  $: {
+    userData = $users || [];
+  }
 
   if (browser) {
     currentCompany = window.location.pathname.replace('/employees/', '');
+  }
+
+  function handleTransferEmployee() {
+    alert(selected);
   }
 </script>
 
@@ -14,15 +24,12 @@
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
           <h1 class="text-base font-semibold leading-6 text-white">{currentCompany} Employees</h1>
-          <p class="mt-2 text-sm text-gray-300">
-            Please contact one of our sales representatives for more information.
-          </p>
         </div>
       </div>
       <div class="mt-8 flow-root">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-            {#each $users as user}
+            {#each $users as user (user.id)}
               <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {#if user.company.name.replaceAll(' ', '') === currentCompany}
                   <li class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
@@ -37,7 +44,25 @@
                           {user.address.city}, {user.address.zipcode}
                         </p>
                         <p class="mt-0.5 truncate text-sm text-gray-500">{user.phone}</p>
-                        <p class="mt-0.5 truncate text-sm text-gray-500">{user.email}</p>
+                        <p class="mt-0.5 mb-4 truncate text-sm text-gray-500">{user.email}</p>
+                        <hr />
+                        <label
+                          for="location"
+                          class="block text-xs mt-2 font-medium leading-6 text-gray-900"
+                          >Transfer employee to:</label
+                        >
+                        <select
+                          id="company"
+                          name="company"
+                          bind:value={selected}
+                          on:change={handleTransferEmployee}
+                          class="block w-56 rounded-md border-0 py-1 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 text-xs sm:leading-6"
+                        >
+                          <option hidden disabled selected value>Select company </option>
+                          {#each userData as company}
+                            <option>{company.company.name}</option>
+                          {/each}
+                        </select>
                       </div>
                     </div>
                   </li>
