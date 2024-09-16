@@ -31,13 +31,13 @@
                         <div class="flex items-center space-x-3">
                           <h3 class="truncate text-sm font-medium text-gray-900">{user.name}</h3>
                         </div>
-                        <p class="mt-1 truncate text-sm text-gray-500">{user.address.street}</p>
-                        <p class="mt-1 truncate text-sm text-gray-500">{user.address.suite}</p>
-                        <p class="mt-1 truncate text-sm text-gray-500">
+                        <p class="mt-0.5 truncate text-sm text-gray-500">{user.address.street}</p>
+                        <p class="mt-0.5 truncate text-sm text-gray-500">{user.address.suite}</p>
+                        <p class="mt-0.5 truncate text-sm text-gray-500">
                           {user.address.city}, {user.address.zipcode}
                         </p>
-                        <p class="mt-1 truncate text-sm text-gray-500">{user.phone}</p>
-                        <p class="mt-1 truncate text-sm text-gray-500">{user.email}</p>
+                        <p class="mt-0.5 truncate text-sm text-gray-500">{user.phone}</p>
+                        <p class="mt-0.5 truncate text-sm text-gray-500">{user.email}</p>
                       </div>
                     </div>
                   </li>
