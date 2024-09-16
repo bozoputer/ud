@@ -7,6 +7,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Acme Brands | Companies</title>
+</svelte:head>
+
 {#if userData.length > 0}
   <div class="bg-gray-900">
     <div class="mx-auto max-w-7xl">
@@ -14,9 +18,10 @@
         <div class="px-4 sm:px-6 lg:px-8">
           <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
-              <h1 class="text-base font-semibold leading-6 text-white">Companies</h1>
+              <h1 class="text-base font-semibold leading-6 text-white">Acme Brands</h1>
               <p class="mt-2 text-sm text-gray-300">
-                Click a company name to navigate to the employee page
+                Companies under the Acme Brands corporate umbrella. Click a company name to navigate
+                to the employee page.
               </p>
             </div>
           </div>
