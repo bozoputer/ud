@@ -11,9 +11,10 @@
   <ul>
     {#each userData as company}
       <li>
-        <span><a href="/">{company.company.name}</a>, </span><span
-          >{company.company.catchPhrase},
-        </span><span>1</span>
+        <span
+          ><a href="/employees/{company.company.name.replaceAll(' ', '')}">{company.company.name}</a
+          >,
+        </span><span>{company.company.catchPhrase}, </span><span>1</span>
       </li>
     {/each}
   </ul>
