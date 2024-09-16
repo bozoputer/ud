@@ -10,7 +10,7 @@
   }
 
   if (browser) {
-    currentCompany = window.location.pathname.replace('/employees/', '');
+    currentCompany = window.location.pathname.replace('/employees/', '').replaceAll('%20', ' ');
   }
 
   function handleTransferEmployee() {
@@ -35,7 +35,7 @@
           <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
             {#each $users as user (user.id)}
               <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {#if user.company.name.replaceAll(' ', '') === currentCompany}
+                {#if user.company.name.replaceAll('%20', ' ') === currentCompany}
                   <li class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
                     <div class="flex w-full items-center justify-between space-x-6 p-6">
                       <div class="flex-1 truncate">

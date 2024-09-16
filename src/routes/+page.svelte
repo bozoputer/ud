@@ -49,9 +49,7 @@
                       <tr>
                         <td
                           class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0"
-                          ><a
-                            class="underline"
-                            href="employees/{company.company.name.replaceAll(' ', '')}"
+                          ><a class="underline" href="employees/{company.company.name}"
                             >{company.company.name}</a
                           ></td
                         >
